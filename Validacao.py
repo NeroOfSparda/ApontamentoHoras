@@ -3,13 +3,11 @@ import tkinter.ttk as ttk
 from tkinter import messagebox, PhotoImage
 import InterfaceGrafica as interface
 
-#Função de validação
-
-#Cria uma nova Janela para login
+#Cria uma Janela para login
 
 Janela = tk.Tk()
 Janela.title("Login")
-Janela.geometry("950x700")
+Janela.geometry("920x680")
 Janela.configure(background="#cdcdcd")
 
 logo_valid = tk.PhotoImage(file="Images/Logo_NOS.png")
@@ -55,7 +53,7 @@ def validar():
     interface.InterfaceGrafica()
 
 botao = tk.Button(Janela, text="Validar", command=validar, width=25, height=2)
-botao.place(relx= 0.5, rely= 0.7, anchor= tk.CENTER)
+botao.place(relx= 0.51, rely= 0.7, anchor= tk.CENTER)
 
 
 Janela.mainloop()

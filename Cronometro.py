@@ -1,5 +1,4 @@
 import time
-from tkinter import Tk
 
 #Inicia o cronometro em 0
 
