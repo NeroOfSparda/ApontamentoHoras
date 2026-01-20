@@ -30,7 +30,7 @@ logo = tk.PhotoImage(file="Images/Logo_NOS.png")
 logo_reduzido = logo.subsample(8, 8)
 
 donut = tk.PhotoImage(file="Images/Donuts.png")
-donut_reduzido = donut.subsample(9, 9)
+donut_reduzido = donut.subsample(10, 10)
 
 logo = tk.Label(novaJanela, image=logo_reduzido, bg="#cdcdcd")
 logo.grid(row=0, column=0)
@@ -130,7 +130,7 @@ botaoextract.place(relx=.5, rely=.9, height=30, anchor=tk.CENTER)
 
     #Botão para exibir o grafico
 
-botaographic = tk.Button(novaJanela, image=donut_reduzido, command=graphic.graphic, width=50)
+botaographic = tk.Button(novaJanela, image=donut_reduzido, command=graphic.graphic, width=50, bg="#cdcdcd", border=0, activebackground="#cdcdcd")
 botaographic.place(relx= .9, rely=.05, height=50)
 
 novaJanela.mainloop()
