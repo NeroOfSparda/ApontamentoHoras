@@ -2,7 +2,7 @@ import time
 
 #Inicia o cronometro em 0
 
-start= ""
+start= 0
 
 #Função de calculo do tempo
 
