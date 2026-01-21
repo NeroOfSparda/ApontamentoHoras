@@ -1,11 +1,13 @@
 import tkinter as tk
 import tkinter.ttk as ttk
+from calendar import day_abbr
 from tkinter import messagebox, PhotoImage
 import CodProj as cj
 import Cronometro as cronometro
 import time
 from datetime import datetime
 import Graphic as graphic
+import Database as database
 
 #Cria a variavel para a data
 
@@ -82,11 +84,11 @@ def Iniciar():
     obs= observacao.get()
 
 
-    if empresa == "" or obs == "":
-        messagebox.showerror("Erro", "Favor digitar a empresa ou observacao.")
-    else:
-        messagebox.showinfo("Iniciar", "Iniciado!")
-        cronometro.start= time.time()
+    #if empresa == "" or obs == "":
+        #messagebox.showerror("Erro", "Favor digitar a empresa ou observacao.")
+    #else:
+        #messagebox.showinfo("Iniciar", "Iniciado!")
+    cronometro.start= time.time()
 
         #Função que atualiza o texto com as informações do cronometro
 
@@ -109,6 +111,23 @@ botaoinit.place(relx=.01, rely=0.8, height=30)
 def Parar():
     global iniciar_cronometro
     iniciar_cronometro = False
+
+    empresa_valor = empresa.get()
+    observacao_valor = observacao.get()
+    data_valor = date_now
+    tempo_valor = cronometro.TikTak()
+
+    database.db(
+        empresa_valor,
+        data_valor,
+        tempo_valor,
+        observacao_valor
+    )
+
+    database.agrupar(
+        empresa_valor
+        )
+
     messagebox.showinfo("Parar", "Parado!")
     initial.config(text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
     initial.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
