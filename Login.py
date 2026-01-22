@@ -1,9 +1,6 @@
 import sqlite3
 import sqlite3 as sql
 
-from fontTools.unicodedata.Blocks import VALUES
-
-
 def acess(login, password):
     conect = sqlite3.connect("acessos.db")
     cursor = conect.cursor()

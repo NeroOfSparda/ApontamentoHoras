@@ -28,14 +28,12 @@ def Save():
 
     loginc = tk.Entry(CreateWindow, width=50)
     loginc.place(relx=0.53, rely=0.5, anchor=tk.CENTER, height=30)
-    print(loginc.get())
     # Exibe o valor digitado na tela
 
     # Função para entrada de dados no campo de senha e exibição de * no lugar da senha
 
     passwordc = tk.Entry(CreateWindow, width=50)
     passwordc.place(relx=0.53, rely=0.6, anchor=tk.CENTER, height=30)
-    print(passwordc.get())
 
     def salvar():
 

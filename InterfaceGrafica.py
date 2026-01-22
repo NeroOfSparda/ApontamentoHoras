@@ -61,14 +61,12 @@ def InterfaceGrafica():
 
     empresa = tk.Entry(novaJanela, width=40)
     empresa.place(relx=.01, rely=.15, height=30)
-    print(empresa.get())
 
     codProj = ttk.Combobox(novaJanela, values=(cj.codigos), width=37)
     codProj.place(relx=.3, rely=.15, height=30)
 
     observacao = tk.Entry(novaJanela, width=40)
     observacao.place(relx=.6, rely=.15, height=30)
-    print(observacao.get())
 
 # Cria a variavel para iniciar o cronometro
 
@@ -118,12 +116,10 @@ def InterfaceGrafica():
         tempo_valor = cronometro.TikTak()
 
         database.db(empresa_valor, data_valor,tempo_valor, observacao_valor)
-
-        database.agrupar(empresa_valor)
-
         messagebox.showinfo("Parar", "Parado!")
         initial.config(text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
         initial.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
 
     # Botão para encerrar o cronometro
 

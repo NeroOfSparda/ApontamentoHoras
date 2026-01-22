@@ -34,7 +34,6 @@ label.place(relx= 0.33, rely= 0.6, anchor= tk.CENTER)
 
 login = tk.Entry(Janela, width=50)
 login.place(relx= 0.53, rely= 0.5, anchor= tk.CENTER, height=30)
-print(login.get())
 #Exibe o valor digitado na tela
 
 
@@ -42,7 +41,6 @@ print(login.get())
 
 password = tk.Entry(Janela, show= '*', width=50)
 password.place(relx= 0.53, rely= 0.6, anchor= tk.CENTER, height=30)
-print(password.get())
 
 #Exibe a senha digitada com *
 def salvar():
