@@ -1,6 +1,7 @@
 import sqlite3
 import sqlite3 as sql
 
+#Função para criação do arquivo e da tabela de apontamentos, caso não exista
 
 def db(empresa, data, tempo, observacao):
     conect = sqlite3.connect("apontamento.db")
@@ -17,6 +18,7 @@ def db(empresa, data, tempo, observacao):
     conect.commit()
     conect.close()
 
+#Função para agrupamento das informações baseado nas empresas
 
 def agrupar(data):
     conect = sqlite3.connect("apontamento.db")

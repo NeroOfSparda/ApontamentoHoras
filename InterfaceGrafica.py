@@ -16,56 +16,61 @@ date_now = date.strftime("%d/%m/%Y")
 
 
 def InterfaceGrafica():
+
     # Cria uma nova janela
 
-    novaJanela = tk.Tk()
+    New_window = tk.Tk()
 
     # Definir Nome da Janela e tamanho da tela
 
-    novaJanela.title("Protótipo")
-    novaJanela.geometry("920x680")
-    novaJanela.configure(background="#cdcdcd")
+    New_window.title("Protótipo")
+    New_window.geometry("920x680")
+    New_window.configure(background="#cdcdcd")
 
-    # Insere a logo
+    #Pega a logo
 
     logo = tk.PhotoImage(file="Images/Logo_NOS.png")
     logo_reduzido = logo.subsample(8, 8)
 
+    #Pega a imagem para o botão de grafico
+
     donut = tk.PhotoImage(file="Images/Donuts.png")
     donut_reduzido = donut.subsample(10, 10)
 
-    logo_label = tk.Label(novaJanela, image=logo_reduzido, bg="#cdcdcd")
+    #Insere a logo na tela
+
+    logo_label = tk.Label(New_window, image=logo_reduzido, bg="#cdcdcd")
     logo_label.grid(row=0, column=0)
 
-    # Criação do titulo dos campos
+    # Criação do texto dos campos
 
-    cronos = tk.Label(novaJanela, text="Cronômetro", font=("Arial", 22), bg="#cdcdcd")
+    cronos = tk.Label(New_window, text="Cronômetro", font=("Arial", 22), bg="#cdcdcd")
     cronos.place(relx=.07, rely=.02)
 
-    emp = tk.Label(novaJanela, text="Empresa", font=("Arial", 16), bg="#cdcdcd")
+    emp = tk.Label(New_window, text="Empresa", font=("Arial", 16), bg="#cdcdcd")
     emp.place(relx=.01, rely=.1)
 
-    codpj = tk.Label(novaJanela, text="Data", font=("Arial", 16), bg="#cdcdcd")
+    codpj = tk.Label(New_window, text="Data", font=("Arial", 16), bg="#cdcdcd")
     codpj.place(relx=.3, rely=.1)
 
-    obs = tk.Label(novaJanela, text="Observacao", font=("Arial", 16), bg="#cdcdcd")
+    obs = tk.Label(New_window, text="Observacao", font=("Arial", 16), bg="#cdcdcd")
     obs.place(relx=.6, rely=.1)
 
-    date_vs = tk.Label(novaJanela, text=date_now, font=("Arial", 22), bg="#cdcdcd")
+    date_vs = tk.Label(New_window, text=date_now, font=("Arial", 22), bg="#cdcdcd")
     date_vs.place(relx=0.5, rely=0.95, anchor=tk.CENTER)
 
-    initial = tk.Label(novaJanela, text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
+    initial = tk.Label(New_window, text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
     initial.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
     # Criação dos campos para entrada de dados
 
-    empresa = tk.Entry(novaJanela, width=40)
+    empresa = tk.Entry(New_window, width=40)
     empresa.place(relx=.01, rely=.15, height=30)
 
-    data = tk.Entry(novaJanela, width=40)
+    data = tk.Entry(New_window, width=40)
     data.place(relx=.3, rely=.15, height=30)
 
-    observacao = tk.Entry(novaJanela, width=40)
+    observacao = tk.Entry(New_window, width=40)
     observacao.place(relx=.6, rely=.15, height=30)
 
 # Cria a variavel para iniciar o cronometro
@@ -100,7 +105,7 @@ def InterfaceGrafica():
     # Botão para inicio do Cronometro
 
 
-    botaoinit = tk.Button(novaJanela, text="Iniciar", command=Iniciar, width=60)
+    botaoinit = tk.Button(New_window, text="Iniciar", command=Iniciar, width=60)
     botaoinit.place(relx=.01, rely=0.8, height=30)
 
 
@@ -132,7 +137,7 @@ def InterfaceGrafica():
     # Botão para encerrar o cronometro
 
 
-    botaostop = tk.Button(novaJanela, text="Parar", command=Parar, width=60)
+    botaostop = tk.Button(New_window, text="Parar", command=Parar, width=60)
     botaostop.place(relx=.5, rely=0.8, height=30)
 
 
@@ -143,14 +148,13 @@ def InterfaceGrafica():
 
     # Botão para extrair o conteudo
 
-
-    botaoextract = tk.Button(novaJanela, text="Extrair", command=Extrair, width=50)
+    botaoextract = tk.Button(New_window, text="Extrair", command=Extrair, width=50)
     botaoextract.place(relx=.5, rely=.9, height=30, anchor=tk.CENTER)
 
 # Botão para exibir o grafico
 
-    botaographic = tk.Button(novaJanela, image=donut_reduzido, command=graphic.graphic, width=50, bg="#cdcdcd", border=0,
+    botaographic = tk.Button(New_window, image=donut_reduzido, command=graphic.graphic, width=50, bg="#cdcdcd", border=0,
                          activebackground="#cdcdcd")
     botaographic.place(relx=.9, rely=.05, height=50)
 
-    novaJanela.mainloop()
+    New_window.mainloop()
