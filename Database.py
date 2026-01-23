@@ -18,12 +18,13 @@ def db(empresa, data, tempo, observacao):
     conect.close()
 
 
-def agrupar():
+def agrupar(data):
     conect = sqlite3.connect("apontamento.db")
     cursor = conect.cursor()
 
     cursor.execute(
-        "SELECT empresa, data, SUM(tempo), GROUP_CONCAT(observacao, '; ') FROM apontamentos GROUP BY empresa, data")
+        """SELECT empresa, data, SUM(tempo), observacao FROM apontamentos where data = ? GROUP BY empresa""",
+        (data,))
     empresas = cursor.fetchall()
 
     conect.close()

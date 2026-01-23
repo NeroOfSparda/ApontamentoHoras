@@ -1,8 +1,8 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 from calendar import day_abbr
+from shlex import split
 from tkinter import messagebox, PhotoImage
-import CodProj as cj
 import Cronometro as cronometro
 import time
 from datetime import datetime
@@ -45,7 +45,7 @@ def InterfaceGrafica():
     emp = tk.Label(novaJanela, text="Empresa", font=("Arial", 16), bg="#cdcdcd")
     emp.place(relx=.01, rely=.1)
 
-    codpj = tk.Label(novaJanela, text="Cod. Proj.", font=("Arial", 16), bg="#cdcdcd")
+    codpj = tk.Label(novaJanela, text="Data", font=("Arial", 16), bg="#cdcdcd")
     codpj.place(relx=.3, rely=.1)
 
     obs = tk.Label(novaJanela, text="Observacao", font=("Arial", 16), bg="#cdcdcd")
@@ -62,8 +62,8 @@ def InterfaceGrafica():
     empresa = tk.Entry(novaJanela, width=40)
     empresa.place(relx=.01, rely=.15, height=30)
 
-    codProj = ttk.Combobox(novaJanela, values=(cj.codigos), width=37)
-    codProj.place(relx=.3, rely=.15, height=30)
+    data = tk.Entry(novaJanela, width=40)
+    data.place(relx=.3, rely=.15, height=30)
 
     observacao = tk.Entry(novaJanela, width=40)
     observacao.place(relx=.6, rely=.15, height=30)
@@ -115,7 +115,15 @@ def InterfaceGrafica():
         data_valor = date_now
         tempo_valor = cronometro.TikTak()
 
-        database.db(empresa_valor, data_valor,tempo_valor, observacao_valor)
+        splittime = tempo_valor.split(':')
+
+        transformhr = int(splittime[0])
+        transformmin = int(splittime[1])
+        transformsec = int(splittime[2])
+
+        total_sec = (transformhr * 3600) + (transformmin * 60) + (transformsec)
+
+        database.db(empresa_valor, data_valor,total_sec, observacao_valor)
         messagebox.showinfo("Parar", "Parado!")
         initial.config(text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
         initial.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
