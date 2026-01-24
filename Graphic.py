@@ -3,23 +3,18 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 import tkinter as tk
 import Database as database
-import time
-from datetime import datetime
-
-date = datetime.now()
-date_now = date.strftime("%d/%m/%Y")
-
+from pyexpat.errors import messages
 #Função para gerar o Grafico
 
-def graphic():
+def graphic(date_value, login):
 
-    empresas = database.agrupar(date_now)
+    empresas = database.agrupar(date_value, login)
 
     lista_empresas = []
     lista_tempo = []
 
     for empresa in empresas:
-        if empresa[1] == date_now:
+        #if empresa[1] == date_value:
             lista_empresas.append(empresa[0])
             lista_tempo.append(empresa[2])
 
@@ -52,6 +47,6 @@ def graphic():
     axes.set_title("Grafico de Projetos", fontsize=14)
     axes.pie(lista_tempo,labels= lista_empresas, autopct=pct_time, wedgeprops={'width':.6})
     axes.text(0,0, sec(total), ha="center", va="center", fontsize=14)
-    axes.set_xlabel(date_now, fontsize=14)
+    axes.set_xlabel(date_value, fontsize=14)
     figure.tight_layout()
 

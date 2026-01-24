@@ -8,6 +8,7 @@ import time
 from datetime import datetime
 import Graphic as graphic
 import Database as database
+import Extract as extract
 
 # Cria a variavel para a data
 
@@ -15,7 +16,7 @@ date = datetime.now()
 date_now = date.strftime("%d/%m/%Y")
 
 
-def InterfaceGrafica():
+def InterfaceGrafica(login):
 
     # Cria uma nova janela
 
@@ -52,6 +53,9 @@ def InterfaceGrafica():
 
     codpj = tk.Label(New_window, text="Data", font=("Arial", 16), bg="#cdcdcd")
     codpj.place(relx=.3, rely=.1)
+
+    login_label = tk.Label(New_window, text=f"Bem-vindo, {login}", font=("Arial", 20), bg="#cdcdcd")
+    login_label.place(relx=.5, rely=.05, anchor=tk.CENTER)
 
     obs = tk.Label(New_window, text="Observacao", font=("Arial", 16), bg="#cdcdcd")
     obs.place(relx=.6, rely=.1)
@@ -128,7 +132,7 @@ def InterfaceGrafica():
 
         total_sec = (transformhr * 3600) + (transformmin * 60) + (transformsec)
 
-        database.db(empresa_valor, data_valor,total_sec, observacao_valor)
+        database.db(empresa_valor, data_valor,total_sec, observacao_valor, login)
         messagebox.showinfo("Parar", "Parado!")
         initial.config(text="00:00:00", font=("Arial", 96), bg="#cdcdcd")
         initial.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
@@ -140,11 +144,21 @@ def InterfaceGrafica():
     botaostop = tk.Button(New_window, text="Parar", command=Parar, width=60)
     botaostop.place(relx=.5, rely=0.8, height=30)
 
+    def Grap():
+
+        date_value = data.get()
+        if date_value == "":
+            date_value = date_now
+        graphic.graphic(date_value, login)
+
+
+
 
 # Função para Extrair o conteudo
 
     def Extrair():
-        messagebox.showinfo("Extrair", "Extraido para a pasta X!")
+
+        save_extract = extract.extract_excel(login)
 
     # Botão para extrair o conteudo
 
@@ -153,8 +167,8 @@ def InterfaceGrafica():
 
 # Botão para exibir o grafico
 
-    botaographic = tk.Button(New_window, image=donut_reduzido, command=graphic.graphic, width=50, bg="#cdcdcd", border=0,
+    botaographic = tk.Button(New_window, image=donut_reduzido, command=Grap, width=50, bg="#cdcdcd", border=0,
                          activebackground="#cdcdcd")
-    botaographic.place(relx=.9, rely=.05, height=50)
+    botaographic.place(relx=.9, rely=.03, height=50)
 
     New_window.mainloop()

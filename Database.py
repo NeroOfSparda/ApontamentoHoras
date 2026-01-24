@@ -3,8 +3,12 @@ import sqlite3 as sql
 
 #Função para criação do arquivo e da tabela de apontamentos, caso não exista
 
-def db(empresa, data, tempo, observacao):
-    conect = sqlite3.connect("apontamento.db")
+def db_login(login):
+    return f"DB/apontamento_{login}.db"
+
+def db(empresa, data, tempo, observacao, login):
+    path = db_login(login)
+    conect = sqlite3.connect(path)
     cursor = conect.cursor()
 
     cursor.execute(
@@ -20,8 +24,9 @@ def db(empresa, data, tempo, observacao):
 
 #Função para agrupamento das informações baseado nas empresas
 
-def agrupar(data):
-    conect = sqlite3.connect("apontamento.db")
+def agrupar(data, login):
+    path = db_login(login)
+    conect = sqlite3.connect(path)
     cursor = conect.cursor()
 
     cursor.execute(
@@ -31,3 +36,14 @@ def agrupar(data):
 
     conect.close()
     return empresas
+
+def extract_db(login):
+    path = db_login(login)
+    conect = sqlite3.connect(path)
+    cursor = conect.cursor()
+
+    cursor.execute("""SELECT empresa, data, tempo, observacao FROM apontamentos""")
+    extracted = cursor.fetchall()
+
+    conect.close()
+    return extracted

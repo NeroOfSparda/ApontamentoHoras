@@ -63,7 +63,7 @@ def validar():
 
     if verify:
         Window_valid.destroy()
-        interface.InterfaceGrafica()
+        interface.InterfaceGrafica(login_valor)
     else:
         messagebox.showerror('Erro', "Usuario ou senha incorretos")
 

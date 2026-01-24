@@ -2,7 +2,7 @@ import sqlite3
 import sqlite3 as sql
 
 def acess(login, password):
-    conect = sqlite3.connect("acessos.db")
+    conect = sqlite3.connect("DB/acessos.db")
     cursor = conect.cursor()
 
     cursor.execute(
@@ -18,13 +18,14 @@ def acess(login, password):
 
 
 def select(login, password):
-    conect = sqlite3.connect("acessos.db")
+
+    conect = sqlite3.connect("DB/acessos.db")
     cursor = conect.cursor()
 
-    cursor.execute("""SELECT login, password FROM USERS 
+    cursor.execute("""SELECT 1 FROM USERS 
                        WHERE login = ? AND password = ?""",
             (login, password))
     resultado = cursor.fetchone()
 
     conect.close()
-    return resultado
+    return resultado is not None
