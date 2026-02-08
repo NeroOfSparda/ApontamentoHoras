@@ -4,6 +4,7 @@ from tkinter import messagebox, PhotoImage
 import InterfaceGrafica as interface
 import Login as Login
 import Create as create
+from Utils import resource_path
 
 #Cria uma Janela para login
 
@@ -14,7 +15,8 @@ Window_valid.configure(background="#cdcdcd")
 
 #Cria e exibe a Logo na tela
 
-logo_valid = tk.PhotoImage(file="Images/Logo_NOS.png")
+logo_path = resource_path("Images/Logo_NOS.png")
+logo_valid = tk.PhotoImage(file=logo_path)
 logo_reduzido2 = logo_valid.subsample(3, 3)
 
 logo_tela = tk.Label(Window_valid, image=logo_reduzido2, bg="#cdcdcd")
@@ -50,7 +52,7 @@ def salvar():
 
 #Botão para abrir a tela de criação de conta
 
-savebutton = ttk.Button(Window_valid, text="Criar conta", command=salvar)
+savebutton = tk.Button(Window_valid, text="Criar conta", command=salvar, width=25, height=2)
 savebutton.place(relx= 0.51, rely= 0.7, anchor= tk.CENTER)
 
 #Função para validar as entradas e abrir a interfacegrafica

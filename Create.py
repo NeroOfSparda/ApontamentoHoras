@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-
+from Utils import resource_path
 import Login as login
 
 def Save():
@@ -10,7 +10,8 @@ def Save():
     CreateWindow.geometry("920x680")
     CreateWindow.configure(background="#cdcdcd")
 
-    logo_valid2 = tk.PhotoImage(file="images/Logo_NOS.png")
+    logo_path = resource_path("Images/Logo_NOS.png")
+    logo_valid2 = tk.PhotoImage(file=logo_path)
     logo_reduzido3 = logo_valid2.subsample(3, 3)
 
     logoval2 = tk.Label(CreateWindow, image=logo_reduzido3, bg="#cdcdcd")

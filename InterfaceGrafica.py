@@ -9,12 +9,12 @@ from datetime import datetime
 import Graphic as graphic
 import Database as database
 import Extract as extract
+from Utils import resource_path
 
 # Cria a variavel para a data
 
 date = datetime.now()
 date_now = date.strftime("%d/%m/%Y")
-
 
 def InterfaceGrafica(login):
 
@@ -30,12 +30,14 @@ def InterfaceGrafica(login):
 
     #Pega a logo
 
-    logo = tk.PhotoImage(file="Images/Logo_NOS.png")
+    logo_path = resource_path("Images/Logo_NOS.png")
+    logo = tk.PhotoImage(file=logo_path)
     logo_reduzido = logo.subsample(8, 8)
 
     #Pega a imagem para o botão de grafico
 
-    donut = tk.PhotoImage(file="Images/Donuts.png")
+    donut_path = resource_path("Images/Donuts.png")
+    donut = tk.PhotoImage(file=donut_path)
     donut_reduzido = donut.subsample(10, 10)
 
     #Insere a logo na tela

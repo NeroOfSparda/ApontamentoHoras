@@ -1,10 +1,12 @@
 import sqlite3
 import sqlite3 as sql
+from Utils import resource_path
 
 #Função para criação do arquivo e da tabela de apontamentos, caso não exista
 
 def db_login(login):
-    return f"DB/apontamento_{login}.db"
+    path = resource_path(f"DB/apontamento_{login}.db")
+    return path
 
 def db(empresa, data, tempo, observacao, login):
     path = db_login(login)

@@ -1,10 +1,13 @@
 import pandas as pd
 import openpyxl as xl
 import Database as database
+from Utils import resource_path
 
 def extract_excel(login):
 
     dados = database.extract_db(login)
+
+    output_path = resource_path(f"Extract/apontamentos_{login}.xlsx")
 
     wb = xl.Workbook()
     ws = wb.active
@@ -42,4 +45,4 @@ def extract_excel(login):
     for (empresa, data), valores in agrupados.items():
             ws.append([empresa, data, sec(valores["tempo"]), valores["observacao"]])
 
-    wb.save(f"Extract/apontamentos_{login}.xlsx")
+    wb.save(output_path)

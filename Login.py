@@ -1,8 +1,12 @@
+import sys
+import os
 import sqlite3
 import sqlite3 as sql
+from Utils import resource_path
 
 def acess(login, password):
-    conect = sqlite3.connect("DB/acessos.db")
+    acessos_path = resource_path("DB/acessos.db")
+    conect = sqlite3.connect(acessos_path)
     cursor = conect.cursor()
 
     cursor.execute(
@@ -18,8 +22,8 @@ def acess(login, password):
 
 
 def select(login, password):
-
-    conect = sqlite3.connect("DB/acessos.db")
+    acessos_path = resource_path("DB/acessos.db")
+    conect = sqlite3.connect(acessos_path)
     cursor = conect.cursor()
 
     cursor.execute("""SELECT 1 FROM USERS 
