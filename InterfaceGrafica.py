@@ -1,8 +1,5 @@
 import tkinter as tk
-import tkinter.ttk as ttk
-from calendar import day_abbr
-from shlex import split
-from tkinter import messagebox, PhotoImage
+from tkinter import messagebox
 import Cronometro as cronometro
 import time
 from datetime import datetime
@@ -27,6 +24,10 @@ def InterfaceGrafica(login):
     New_window.title("Protótipo")
     New_window.geometry("920x680")
     New_window.configure(background="#cdcdcd")
+
+    #Incluir Icone
+
+    New_window.iconbitmap(resource_path("Images/Logo_NOS.ico"))
 
     #Pega a logo
 

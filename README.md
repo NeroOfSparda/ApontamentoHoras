@@ -1,7 +1,15 @@
 Apontamento de Horas - Python
 
 Sistema desktop desenvolvido em Python para apontamento de horas por usuário, com controle de tempo, armazenamento em banco de dados SQLite, geração de gráficos e exportação para Excel.
-O projeto foi pensado para uso simples: o usuário faz login, inicia o cronômetro, registra atividades e depois pode visualizar gráficos ou extrair os dados.
+O projeto foi pensado para uso simples: o usuário faz login, inicia o cronômetro, registra atividades e depois pode visualizar gráficos ou extrair os dados
+
+Screenshots:
+
+![Print_Inicio.png](README/Print_Inicio.png)
+![Print_Criar_Conta.png](README/Print_Criar_Conta.png)
+![Print_Interface.png](README/Print_Interface.png)
+![Print_Grafico.png](README/Print_Grafico.png)
+![Print_Excel.png](README/Print_Excel.png)
 
 Funcionalidades:
 

@@ -10,6 +10,10 @@ def Save():
     CreateWindow.geometry("920x680")
     CreateWindow.configure(background="#cdcdcd")
 
+    #Incluir Icone
+
+    CreateWindow.iconbitmap(resource_path("Images/Logo_NOS.ico"))
+
     logo_path = resource_path("Images/Logo_NOS.png")
     logo_valid2 = tk.PhotoImage(file=logo_path)
     logo_reduzido3 = logo_valid2.subsample(3, 3)
@@ -44,5 +48,5 @@ def Save():
         login.acess(loginc_valor, password_valor)
         CreateWindow.destroy()
 
-    createbutton = ttk.Button(CreateWindow, text="Criar Conta", command=salvar, width=25)
+    createbutton = tk.Button(CreateWindow, text="Criar conta", command=salvar, width=25, height=2)
     createbutton.place(relx=0.51, rely=0.8, anchor=tk.CENTER)

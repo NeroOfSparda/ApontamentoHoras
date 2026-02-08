@@ -1,9 +1,10 @@
-import matplotlib as mpl
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 import tkinter as tk
 import Database as database
-from pyexpat.errors import messages
+from ApontamentoHoras.Utils import resource_path
+
+
 #Função para gerar o Grafico
 
 def graphic(date_value, login):
@@ -36,6 +37,10 @@ def graphic(date_value, login):
     pie = tk.Toplevel()
     pie.title("Graphic")
     pie.geometry("720x560")
+
+    #Incluir Icone
+
+    pie.iconbitmap(resource_path("Images/Logo_NOS.ico"))
 
     #Cria o Gráfico
     figure = Figure(figsize=(4, 4), dpi=100)

@@ -1,6 +1,5 @@
 import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter import messagebox, PhotoImage
+from tkinter import messagebox
 import InterfaceGrafica as interface
 import Login as Login
 import Create as create
@@ -12,6 +11,10 @@ Window_valid = tk.Tk()
 Window_valid.title("Login")
 Window_valid.geometry("920x680")
 Window_valid.configure(background="#cdcdcd")
+
+#Incluir icone
+
+Window_valid.iconbitmap(resource_path("Images/Logo_NOS.ico"))
 
 #Cria e exibe a Logo na tela
 
